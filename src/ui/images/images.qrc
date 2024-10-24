@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/box-arrow-down.png</file>
+    <file>icons/box-arrow-up.png</file>
+    <file>icons/icon-dashboard.png</file>
+    <file>icons/icon-finance.png</file>
+    <file>icons/icon-money1.png</file>
+    <file>icons/icon-money2.png</file>
+    <file>icons/icon-plugs.png</file>
+    <file>icons/icon-products.png</file>
+    <file>icons/Icon-settings.png</file>
+    <file>icons/icon-shopping.png</file>
+    <file>icons/menu-icon.png</file>
+    <file>icons/R.png</file>
+  </qresource>
+</RCC>
