@@ -354,19 +354,19 @@ class Ui_MainWindow(object):
         self.frame_13.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_13)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.label_5 = QLabel(self.frame_13)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font1)
-        self.label_5.setStyleSheet(u"color: #fff;")
+        self.time_label = QLabel(self.frame_13)
+        self.time_label.setObjectName(u"time_label")
+        self.time_label.setFont(font1)
+        self.time_label.setStyleSheet(u"color: #fff;")
 
-        self.horizontalLayout_7.addWidget(self.label_5)
+        self.horizontalLayout_7.addWidget(self.time_label)
 
-        self.label_6 = QLabel(self.frame_13)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font1)
-        self.label_6.setStyleSheet(u"color: #fff;")
+        self.date_label = QLabel(self.frame_13)
+        self.date_label.setObjectName(u"date_label")
+        self.date_label.setFont(font1)
+        self.date_label.setStyleSheet(u"color: #fff;")
 
-        self.horizontalLayout_7.addWidget(self.label_6)
+        self.horizontalLayout_7.addWidget(self.date_label)
 
 
         self.horizontalLayout_9.addWidget(self.frame_13)
@@ -391,12 +391,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.label_7)
 
-        self.radioButton = QRadioButton(self.frame_14)
-        self.radioButton.setObjectName(u"radioButton")
-        self.radioButton.setMinimumSize(QSize(40, 22))
-        self.radioButton.setMaximumSize(QSize(30, 16777215))
-        self.radioButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.radioButton.setStyleSheet(u"QRadioButton{\n"
+        self.voice_control = QRadioButton(self.frame_14)
+        self.voice_control.setObjectName(u"voice_control")
+        self.voice_control.setMinimumSize(QSize(40, 22))
+        self.voice_control.setMaximumSize(QSize(30, 16777215))
+        self.voice_control.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.voice_control.setStyleSheet(u"QRadioButton{\n"
 "	background-color: rgb(99, 89, 233);\n"
 "	border-radius: 11px;\n"
 "	padding: 4px;\n"
@@ -410,9 +410,9 @@ class Ui_MainWindow(object):
 "QRadioButton::indicator::checked{\n"
 "	background-color: rgb(90, 255, 173);\n"
 "}")
-        self.radioButton.setChecked(False)
+        self.voice_control.setChecked(False)
 
-        self.horizontalLayout_8.addWidget(self.radioButton)
+        self.horizontalLayout_8.addWidget(self.voice_control)
 
 
         self.horizontalLayout_9.addWidget(self.frame_14)
@@ -514,15 +514,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.label_10)
 
-        self.label_11 = QLabel(self.frame_15)
-        self.label_11.setObjectName(u"label_11")
+        self.total_income_label = QLabel(self.frame_15)
+        self.total_income_label.setObjectName(u"total_income_label")
         font4 = QFont()
         font4.setFamilies([u"Inter Hewn"])
         font4.setPointSize(12)
-        self.label_11.setFont(font4)
-        self.label_11.setStyleSheet(u"color: #fff;")
+        self.total_income_label.setFont(font4)
+        self.total_income_label.setStyleSheet(u"color: #fff;")
 
-        self.horizontalLayout_11.addWidget(self.label_11)
+        self.horizontalLayout_11.addWidget(self.total_income_label)
 
         self.label_12 = QLabel(self.frame_15)
         self.label_12.setObjectName(u"label_12")
@@ -627,12 +627,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.label_16)
 
-        self.label_17 = QLabel(self.frame_20)
-        self.label_17.setObjectName(u"label_17")
-        self.label_17.setFont(font4)
-        self.label_17.setStyleSheet(u"color: #fff;")
+        self.total_outcome_label = QLabel(self.frame_20)
+        self.total_outcome_label.setObjectName(u"total_outcome_label")
+        self.total_outcome_label.setFont(font4)
+        self.total_outcome_label.setStyleSheet(u"color: #fff;")
 
-        self.horizontalLayout_15.addWidget(self.label_17)
+        self.horizontalLayout_15.addWidget(self.total_outcome_label)
 
         self.label_18 = QLabel(self.frame_20)
         self.label_18.setObjectName(u"label_18")
@@ -768,15 +768,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20.addItem(self.horizontalSpacer_24)
 
-        self.label_22 = QLabel(self.frame_27)
-        self.label_22.setObjectName(u"label_22")
-        self.label_22.setMaximumSize(QSize(16777215, 35))
-        self.label_22.setFont(font1)
-        self.label_22.setStyleSheet(u"background-color: rgb(99, 89, 233);\n"
+        self.balance_label = QLabel(self.frame_27)
+        self.balance_label.setObjectName(u"balance_label")
+        self.balance_label.setMaximumSize(QSize(16777215, 35))
+        self.balance_label.setFont(font1)
+        self.balance_label.setStyleSheet(u"background-color: rgb(99, 89, 233);\n"
 "border-radius: 5px;\n"
 "padding: 5px 5px;")
 
-        self.horizontalLayout_20.addWidget(self.label_22)
+        self.horizontalLayout_20.addWidget(self.balance_label)
 
 
         self.verticalLayout_9.addWidget(self.frame_27)
@@ -798,15 +798,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21.addItem(self.horizontalSpacer_25)
 
-        self.label_24 = QLabel(self.frame_28)
-        self.label_24.setObjectName(u"label_24")
-        self.label_24.setMaximumSize(QSize(16777215, 35))
-        self.label_24.setFont(font1)
-        self.label_24.setStyleSheet(u"background-color: rgb(99, 89, 233);\n"
+        self.savings_label = QLabel(self.frame_28)
+        self.savings_label.setObjectName(u"savings_label")
+        self.savings_label.setMaximumSize(QSize(16777215, 35))
+        self.savings_label.setFont(font1)
+        self.savings_label.setStyleSheet(u"background-color: rgb(99, 89, 233);\n"
 "border-radius: 5px;\n"
 "padding: 5px 5px;")
 
-        self.horizontalLayout_21.addWidget(self.label_24)
+        self.horizontalLayout_21.addWidget(self.savings_label)
 
 
         self.verticalLayout_9.addWidget(self.frame_28)
@@ -911,6 +911,8 @@ class Ui_MainWindow(object):
         self.frame_29.setMinimumSize(QSize(0, 30))
         self.frame_29.setFrameShape(QFrame.Shape.NoFrame)
         self.frame_29.setFrameShadow(QFrame.Shadow.Raised)
+        self.frame_29.setLineWidth(1)
+        self.frame_29.setMidLineWidth(0)
         self.horizontalLayout_24 = QHBoxLayout(self.frame_29)
         self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
         self.horizontalLayout_24.setContentsMargins(0, 0, 0, 0)
@@ -1022,6 +1024,31 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_12.addWidget(self.frame_31)
 
+        self.not_found_frame = QFrame(self.transactions_frame)
+        self.not_found_frame.setObjectName(u"not_found_frame")
+        self.not_found_frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.not_found_frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_30 = QHBoxLayout(self.not_found_frame)
+        self.horizontalLayout_30.setSpacing(0)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.horizontalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_37 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_30.addItem(self.horizontalSpacer_37)
+
+        self.label_34 = QLabel(self.not_found_frame)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setFont(font2)
+
+        self.horizontalLayout_30.addWidget(self.label_34)
+
+        self.horizontalSpacer_36 = QSpacerItem(48, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_30.addItem(self.horizontalSpacer_36)
+
+
+        self.verticalLayout_12.addWidget(self.not_found_frame)
+
 
         self.verticalLayout_4.addWidget(self.transactions_frame)
 
@@ -1039,16 +1066,16 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_25.addItem(self.horizontalSpacer_29)
 
-        self.pushButton_3 = QPushButton(self.frame_34)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMaximumSize(QSize(125, 16777215))
-        self.pushButton_3.setFont(font1)
-        self.pushButton_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_3.setStyleSheet(u"background-color: rgba(2, 177, 90, 230);\n"
+        self.add_transaction_btn = QPushButton(self.frame_34)
+        self.add_transaction_btn.setObjectName(u"add_transaction_btn")
+        self.add_transaction_btn.setMaximumSize(QSize(125, 16777215))
+        self.add_transaction_btn.setFont(font1)
+        self.add_transaction_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.add_transaction_btn.setStyleSheet(u"background-color: rgba(2, 177, 90, 230);\n"
 "padding: 10px 20px;\n"
 "border-radius: 10px;")
 
-        self.horizontalLayout_25.addWidget(self.pushButton_3)
+        self.horizontalLayout_25.addWidget(self.add_transaction_btn)
 
         self.horizontalSpacer_28 = QSpacerItem(57, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -1079,22 +1106,22 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u043d\u0435\u043b\u044c", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_33.setText(QCoreApplication.translate("MainWindow", u"I", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"20:13", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"19.10.2024", None))
+        self.time_label.setText(QCoreApplication.translate("MainWindow", u"20:13", None))
+        self.date_label.setText(QCoreApplication.translate("MainWindow", u"19.10.2024", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435", None))
-        self.radioButton.setText("")
+        self.voice_control.setText("")
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u0449\u0438\u0439 \u0434\u043e\u0445\u043e\u0434", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"1735.00", None))
+        self.total_income_label.setText(QCoreApplication.translate("MainWindow", u"1735.00", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"+1.29%", None))
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u0449\u0438\u0439 \u0440\u0430\u0441\u0445\u043e\u0434", None))
-        self.label_17.setText(QCoreApplication.translate("MainWindow", u"1735.00", None))
+        self.total_outcome_label.setText(QCoreApplication.translate("MainWindow", u"1735.00", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"+1.29%", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0430", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u0449\u0430\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u0411\u0430\u043b\u0430\u043d\u0441", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"298275.00\u20bd", None))
+        self.balance_label.setText(QCoreApplication.translate("MainWindow", u"298275.00\u20bd", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u043a\u043e\u043f\u043b\u0435\u043d\u0438\u044f", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"2985.00\u20bd", None))
+        self.savings_label.setText(QCoreApplication.translate("MainWindow", u"2985.00\u20bd", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0441\u0445\u043e\u0434\u044b", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u0438", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"\u0415\u0434\u0430 \u0432\u043d\u0435 \u0434\u043e\u043c\u0430", None))
@@ -1103,6 +1130,7 @@ class Ui_MainWindow(object):
         self.label_30.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0440\u043f\u043b\u0430\u0442\u0430", None))
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"\u0435\u0431\u043e\u0439", None))
         self.label_32.setText(QCoreApplication.translate("MainWindow", u"+4172 \u20bd", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
+        self.label_34.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e!", None))
+        self.add_transaction_btn.setText(QCoreApplication.translate("MainWindow", u"\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c", None))
     # retranslateUi
 
