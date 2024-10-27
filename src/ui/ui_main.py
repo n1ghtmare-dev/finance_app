@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from PySide6.QtCharts import QChartView
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -15,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDial, QFrame, QHBoxLayout,
+from PySide6.QtWidgets import (QApplication, QFrame, QGraphicsView, QHBoxLayout,
     QLabel, QLayout, QMainWindow, QPushButton,
     QRadioButton, QSizePolicy, QSpacerItem, QVBoxLayout,
     QWidget)
@@ -25,9 +26,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(916, 600)
+        MainWindow.resize(1032, 685)
         MainWindow.setMinimumSize(QSize(900, 600))
-        MainWindow.setBaseSize(QSize(900, 600))
+        MainWindow.setBaseSize(QSize(1020, 680))
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet(u"background-color: rgb(20, 19, 50);")
         self.centralwidget = QWidget(MainWindow)
@@ -425,6 +426,12 @@ class Ui_MainWindow(object):
 
         self.frame_10 = QFrame(self.frame_2)
         self.frame_10.setObjectName(u"frame_10")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
+        self.frame_10.setSizePolicy(sizePolicy)
+        self.frame_10.setSizeIncrement(QSize(0, 0))
         self.frame_10.setFrameShape(QFrame.Shape.NoFrame)
         self.frame_10.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_10)
@@ -442,6 +449,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_9 = QFrame(self.frame_8)
         self.frame_9.setObjectName(u"frame_9")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.frame_9.sizePolicy().hasHeightForWidth())
+        self.frame_9.setSizePolicy(sizePolicy1)
         self.frame_9.setFrameShape(QFrame.Shape.NoFrame)
         self.frame_9.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_9)
@@ -501,9 +513,6 @@ class Ui_MainWindow(object):
 
         self.label_10 = QLabel(self.frame_15)
         self.label_10.setObjectName(u"label_10")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_10.sizePolicy().hasHeightForWidth())
         self.label_10.setSizePolicy(sizePolicy)
         self.label_10.setMinimumSize(QSize(30, 30))
@@ -680,6 +689,8 @@ class Ui_MainWindow(object):
 
         self.frame_6 = QFrame(self.frame_8)
         self.frame_6.setObjectName(u"frame_6")
+        sizePolicy1.setHeightForWidth(self.frame_6.sizePolicy().hasHeightForWidth())
+        self.frame_6.setSizePolicy(sizePolicy1)
         self.frame_6.setMinimumSize(QSize(380, 218))
         self.frame_6.setStyleSheet(u"background-color: rgb(29, 29, 65);\n"
 "border: 0;\n"
@@ -688,34 +699,18 @@ class Ui_MainWindow(object):
         self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_6)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.frame_21 = QFrame(self.frame_6)
-        self.frame_21.setObjectName(u"frame_21")
-        self.frame_21.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_21.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_16 = QHBoxLayout(self.frame_21)
-        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_9 = QLabel(self.frame_21)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font4)
+        self.bar_chart = QChartView(self.frame_6)
+        self.bar_chart.setObjectName(u"bar_chart")
 
-        self.horizontalLayout_16.addWidget(self.label_9)
-
-        self.horizontalSpacer_18 = QSpacerItem(313, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_16.addItem(self.horizontalSpacer_18)
-
-
-        self.verticalLayout_7.addWidget(self.frame_21)
-
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_7.addItem(self.verticalSpacer_3)
+        self.verticalLayout_7.addWidget(self.bar_chart)
 
 
         self.verticalLayout_2.addWidget(self.frame_6)
 
         self.frame_7 = QFrame(self.frame_8)
         self.frame_7.setObjectName(u"frame_7")
+        sizePolicy1.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
+        self.frame_7.setSizePolicy(sizePolicy1)
         self.frame_7.setMinimumSize(QSize(380, 180))
         self.frame_7.setStyleSheet(u"background-color: rgb(29, 29, 65);\n"
 "border: 0;\n"
@@ -814,44 +809,17 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_22.addWidget(self.frame_26)
 
-        self.frame_24 = QFrame(self.frame_7)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.frame_24)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.frame_25 = QFrame(self.frame_24)
-        self.frame_25.setObjectName(u"frame_25")
-        self.frame_25.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_25.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_19 = QHBoxLayout(self.frame_25)
-        self.horizontalLayout_19.setSpacing(0)
-        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
-        self.horizontalSpacer_23 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+        self.pie_chart = QChartView(self.frame_7)
+        self.pie_chart.setObjectName(u"pie_chart")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(200)
+        sizePolicy2.setHeightForWidth(self.pie_chart.sizePolicy().hasHeightForWidth())
+        self.pie_chart.setSizePolicy(sizePolicy2)
+        self.pie_chart.setStyleSheet(u"color: #fff;")
+        self.pie_chart.setTransformationAnchor(QGraphicsView.ViewportAnchor.NoAnchor)
 
-        self.horizontalLayout_19.addItem(self.horizontalSpacer_23)
-
-        self.label_20 = QLabel(self.frame_25)
-        self.label_20.setObjectName(u"label_20")
-        self.label_20.setFont(font2)
-
-        self.horizontalLayout_19.addWidget(self.label_20)
-
-        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_19.addItem(self.horizontalSpacer_22)
-
-
-        self.verticalLayout_8.addWidget(self.frame_25)
-
-        self.dial = QDial(self.frame_24)
-        self.dial.setObjectName(u"dial")
-
-        self.verticalLayout_8.addWidget(self.dial)
-
-
-        self.horizontalLayout_22.addWidget(self.frame_24)
+        self.horizontalLayout_22.addWidget(self.pie_chart)
 
 
         self.verticalLayout_2.addWidget(self.frame_7)
@@ -861,7 +829,13 @@ class Ui_MainWindow(object):
 
         self.frame_11 = QFrame(self.frame_10)
         self.frame_11.setObjectName(u"frame_11")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
+        self.frame_11.setSizePolicy(sizePolicy3)
         self.frame_11.setMinimumSize(QSize(266, 533))
+        self.frame_11.setMaximumSize(QSize(320, 16777215))
         self.frame_11.setStyleSheet(u"background-color: rgb(29, 29, 65);\n"
 "border: 0;\n"
 "border-radius: 20px;\n"
@@ -1116,13 +1090,11 @@ class Ui_MainWindow(object):
         self.label_13.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u0449\u0438\u0439 \u0440\u0430\u0441\u0445\u043e\u0434", None))
         self.total_outcome_label.setText(QCoreApplication.translate("MainWindow", u"1735.00", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"+1.29%", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0430", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0431\u0449\u0430\u044f \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u0411\u0430\u043b\u0430\u043d\u0441", None))
         self.balance_label.setText(QCoreApplication.translate("MainWindow", u"298275.00\u20bd", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u043a\u043e\u043f\u043b\u0435\u043d\u0438\u044f", None))
         self.savings_label.setText(QCoreApplication.translate("MainWindow", u"2985.00\u20bd", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"\u0420\u0430\u0441\u0445\u043e\u0434\u044b", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u0435\u0440\u0430\u0446\u0438\u0438", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"\u0415\u0434\u0430 \u0432\u043d\u0435 \u0434\u043e\u043c\u0430", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"\u0445\u043e\u0440\u043e\u0448\u043e \u043f\u043e\u043a\u0443\u0448\u0430\u043b", None))

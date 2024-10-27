@@ -85,3 +85,10 @@ class Database:
         sql = "SELECT balance FROM info"
         self.execute_query(sql, fetch="one")
 
+    def get_all_outcome(self):
+        sql = "SELECT * FROM transactions WHERE amount < 0"
+        self.execute_query(sql, fetch="all")
+
+    def get_all_transaction_types(self):
+        sql = "SELECT * FROM transaction_types"
+        self.execute_query(sql, fetch="all")

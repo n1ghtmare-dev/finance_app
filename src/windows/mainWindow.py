@@ -1,11 +1,15 @@
 from PySide6.QtCore import QThreadPool, QSize
-from PySide6.QtGui import QPixmap, QFont
+from PySide6.QtGui import QPixmap, QFont, QColor, QPainter
 from PySide6.QtWidgets import (QMainWindow, QSpacerItem, QSizePolicy, QApplication, QFrame, QLabel, QHBoxLayout,
                                QVBoxLayout)
 from src.services.mainWindow import MainWindowController
 from src.ui.ui_main import Ui_MainWindow
 from PySide6 import QtCore
+from src.windows.pieChart import PieChart
+from src.windows.barChart import BarChart
+from collections import namedtuple
 
+Data = namedtuple('Data', ['name', 'value', 'primary_color', 'secondary_color'])
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, controller: MainWindowController):
@@ -21,6 +25,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.clean_transactions()
         self.show_transactions()
         self.update_main_info()
+        self.draw_pie_chart()
+        self.draw_bar_chart()
 
     @QtCore.Slot()
     def triggers_connect(self) -> None:
@@ -32,6 +38,41 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.savings_label.setText(f"{self.__controller.savings:.1f}")
         self.total_income_label.setText(f"{self.__controller.total_income:.2f}")
         self.total_outcome_label.setText(f"{self.__controller.total_outcome:.2f}")
+
+    def draw_bar_chart(self):
+        chart = BarChart()
+        self.bar_chart.setChart(chart)
+        self.bar_chart.setRenderHint(QPainter.RenderHint.Antialiasing)
+
+    def draw_pie_chart(self):
+        self.__controller.db.get_all_outcome()
+        self.__controller.db.get_all_transaction_types()
+        transactions = self.__controller.db.get_result()
+        types = self.__controller.db.get_result()
+        datas = list()
+        color_types = dict()
+        types_dict = {}
+
+        for i in types:
+            color_types[i[1]] = [i[3], i[4]]
+
+        for i in transactions:
+            if i[2] in list(types_dict):
+                types_dict[i[2]][0] = types_dict[i[2]][0] + i[5]
+            else:
+                types_dict[i[2]] = [i[5], color_types[i[2]][0], color_types[i[2]][1]]
+        print(types_dict)
+
+        for k, v in types_dict.items():
+            datas.append(Data(v[2], v[0], QColor(f"#{v[1]}"), QColor(f"#{v[1]}")))
+        print(datas)
+
+        chart = PieChart(datas)
+        chart.setBackgroundVisible(False)
+
+        self.pie_chart.setChart(chart)
+        self.pie_chart.setRenderHint(QPainter.RenderHint.Antialiasing)
+
 
     def toggle_menu_frame(self) -> None:
         if self.menu_bar_frame.isVisible():
@@ -69,6 +110,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 setattr(self, name, QFrame(self.transactions_frame))
                 transaction_frame: QFrame = getattr(self, name)
                 transaction_frame.setObjectName(name)
+                # transaction_frame.setStyleSheet("border: 1px solid #ffffff")
                 transaction_frame.setMinimumSize(QSize(0, 30))
                 transaction_frame.setFrameShape(QFrame.Shape.NoFrame)
                 transaction_frame.setFrameShadow(QFrame.Shadow.Raised)
@@ -112,6 +154,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 transaction_title.setObjectName(name)
                 transaction_title.setFont(font_i)
                 transaction_title.setText(str(tr[3]))
+                transaction_title.setMinimumSize(QSize(200, 0))
 
 
                 transaction_vbox_vl.addWidget(transaction_title)
@@ -128,7 +171,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 transaction_hbox.addWidget(transaction_vbox)
 
                 name = f"transaction_{i}_hspacer"
-                setattr(self, name, QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum))
+                setattr(self, name, QSpacerItem(20, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum))
                 transaction_hbox.addItem(getattr(self, name))
 
                 name = f"transaction_{i}_amount"
