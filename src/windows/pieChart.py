@@ -1,4 +1,6 @@
 from functools import partial
+from tarfile import data_filter
+
 from PySide6 import QtCharts
 from PySide6.QtCharts import QChart, QPieSeries, QPieSlice
 from PySide6.QtGui import QFont, QColor
@@ -69,5 +71,6 @@ class PieChart(QChart):
         else:
             self.inner_series.setPieStartAngle(0)
             self.inner_series.setPieEndAngle(360)
+
         _slice.setExplodeDistanceFactor(0.1)
         _slice.setExploded(is_hovered)

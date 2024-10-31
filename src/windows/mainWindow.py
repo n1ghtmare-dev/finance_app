@@ -20,6 +20,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.triggers_connect()
 
     def __init(self):
+        self.pages_dict = {'panel': [self.page_panel, [self.open_panel_btn, self.open_panel_btn_1]],
+                           'edit': [self.page_edit, [self.open_edit_btn, self.open_edit_btn_1, self.add_transaction_btn]],
+                           'settings': [self.page_settings, [self.open_settings_btn, self.open_settings_btn_1]]}
+        self.current_page = self.pages_dict['panel'][0]
         self.new_thread = QThreadPool()
         self.toggle_menu_frame()
         self.clean_transactions()
@@ -31,6 +35,20 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @QtCore.Slot()
     def triggers_connect(self) -> None:
         self.menu_btn.clicked.connect(self.toggle_menu_frame)
+        for k, v in self.pages_dict.items():
+            for btn in v[1]:
+                btn.clicked.connect(getattr(self, f"toggle_page_to_{k}"))
+
+    def toggle_page_to_panel(self) -> None:
+        self.main_pages_widget.setCurrentWidget(self.page_panel)
+        self.draw_bar_chart()
+        self.draw_pie_chart()
+
+    def toggle_page_to_edit(self) -> None:
+        self.main_pages_widget.setCurrentWidget(self.page_edit)
+
+    def toggle_page_to_settings(self) -> None:
+        self.main_pages_widget.setCurrentWidget(self.page_settings)
 
     def update_main_info(self):
         self.__controller.update_info()

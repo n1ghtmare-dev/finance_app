@@ -18,15 +18,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QGraphicsView, QHBoxLayout,
     QLabel, QLayout, QMainWindow, QPushButton,
-    QRadioButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+    QRadioButton, QSizePolicy, QSpacerItem, QStackedWidget,
+    QVBoxLayout, QWidget)
 from src.ui import images_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1032, 685)
+        MainWindow.resize(1032, 681)
         MainWindow.setMinimumSize(QSize(900, 600))
         MainWindow.setBaseSize(QSize(1020, 680))
         MainWindow.setAutoFillBackground(False)
@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
         self.verticalLayout = QVBoxLayout(self.menu_bar_frame)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, -1)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.frame_3 = QFrame(self.menu_bar_frame)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setStyleSheet(u"margin: 5px 0;\n"
@@ -97,17 +97,17 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
-        self.pushButton_2 = QPushButton(self.menu_dashboard_frame)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.open_panel_btn = QPushButton(self.menu_dashboard_frame)
+        self.open_panel_btn.setObjectName(u"open_panel_btn")
+        self.open_panel_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         icon = QIcon()
         icon.addFile(u":/icons/icons/icon-dashboard.png", QSize(), QIcon.Mode.Selected, QIcon.State.On)
-        self.pushButton_2.setIcon(icon)
-        self.pushButton_2.setIconSize(QSize(18, 18))
-        self.pushButton_2.setAutoRepeat(False)
-        self.pushButton_2.setAutoExclusive(False)
+        self.open_panel_btn.setIcon(icon)
+        self.open_panel_btn.setIconSize(QSize(18, 18))
+        self.open_panel_btn.setAutoRepeat(False)
+        self.open_panel_btn.setAutoExclusive(False)
 
-        self.horizontalLayout_3.addWidget(self.pushButton_2)
+        self.horizontalLayout_3.addWidget(self.open_panel_btn)
 
         self.label_2 = QLabel(self.menu_dashboard_frame)
         self.label_2.setObjectName(u"label_2")
@@ -127,6 +127,45 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.menu_dashboard_frame)
 
+        self.menu_edit_frame = QFrame(self.menu_bar_frame)
+        self.menu_edit_frame.setObjectName(u"menu_edit_frame")
+        self.menu_edit_frame.setMinimumSize(QSize(0, 40))
+        self.menu_edit_frame.setStyleSheet(u"border-radius: 0;")
+        self.menu_edit_frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.menu_edit_frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.menu_edit_frame)
+        self.horizontalLayout_19.setSpacing(0)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_18 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_19.addItem(self.horizontalSpacer_18)
+
+        self.open_edit_btn = QPushButton(self.menu_edit_frame)
+        self.open_edit_btn.setObjectName(u"open_edit_btn")
+        self.open_edit_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        icon1 = QIcon()
+        icon1.addFile(u":/icons/icons/icon-edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.open_edit_btn.setIcon(icon1)
+        self.open_edit_btn.setIconSize(QSize(18, 18))
+
+        self.horizontalLayout_19.addWidget(self.open_edit_btn)
+
+        self.label_5 = QLabel(self.menu_edit_frame)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setFont(font1)
+        self.label_5.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"margin-left: 5px;")
+
+        self.horizontalLayout_19.addWidget(self.label_5)
+
+        self.horizontalSpacer_22 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_19.addItem(self.horizontalSpacer_22)
+
+
+        self.verticalLayout.addWidget(self.menu_edit_frame)
+
         self.menu_settings_frame = QFrame(self.menu_bar_frame)
         self.menu_settings_frame.setObjectName(u"menu_settings_frame")
         self.menu_settings_frame.setMinimumSize(QSize(0, 40))
@@ -141,15 +180,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_6)
 
-        self.pushButton = QPushButton(self.menu_settings_frame)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/icons/Icon-settings.png", QSize(), QIcon.Mode.Selected, QIcon.State.On)
-        self.pushButton.setIcon(icon1)
-        self.pushButton.setIconSize(QSize(18, 18))
+        self.open_settings_btn = QPushButton(self.menu_settings_frame)
+        self.open_settings_btn.setObjectName(u"open_settings_btn")
+        self.open_settings_btn.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        icon2 = QIcon()
+        icon2.addFile(u":/icons/icons/Icon-settings.png", QSize(), QIcon.Mode.Selected, QIcon.State.On)
+        self.open_settings_btn.setIcon(icon2)
+        self.open_settings_btn.setIconSize(QSize(18, 18))
 
-        self.horizontalLayout_4.addWidget(self.pushButton)
+        self.horizontalLayout_4.addWidget(self.open_settings_btn)
 
         self.label_4 = QLabel(self.menu_settings_frame)
         self.label_4.setObjectName(u"label_4")
@@ -184,10 +223,10 @@ class Ui_MainWindow(object):
 "border-bottom-left-radius: 0;")
         self.short_menu_bar_frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.short_menu_bar_frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_14 = QVBoxLayout(self.short_menu_bar_frame)
-        self.verticalLayout_14.setSpacing(0)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.verticalLayout_14.setContentsMargins(0, 0, 0, -1)
+        self.verticalLayout_8 = QVBoxLayout(self.short_menu_bar_frame)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.frame_38 = QFrame(self.short_menu_bar_frame)
         self.frame_38.setObjectName(u"frame_38")
         self.frame_38.setStyleSheet(u"margin: 5px 0;\n"
@@ -215,7 +254,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_27.addItem(self.horizontalSpacer_31)
 
 
-        self.verticalLayout_14.addWidget(self.frame_38)
+        self.verticalLayout_8.addWidget(self.frame_38)
 
         self.menu_dashboard_frame_2 = QFrame(self.short_menu_bar_frame)
         self.menu_dashboard_frame_2.setObjectName(u"menu_dashboard_frame_2")
@@ -232,22 +271,22 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_28.addItem(self.horizontalSpacer_32)
 
-        self.pushButton_4 = QPushButton(self.menu_dashboard_frame_2)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_4.setIcon(icon)
-        self.pushButton_4.setIconSize(QSize(18, 18))
-        self.pushButton_4.setAutoRepeat(False)
-        self.pushButton_4.setAutoExclusive(False)
+        self.open_panel_btn_1 = QPushButton(self.menu_dashboard_frame_2)
+        self.open_panel_btn_1.setObjectName(u"open_panel_btn_1")
+        self.open_panel_btn_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.open_panel_btn_1.setIcon(icon)
+        self.open_panel_btn_1.setIconSize(QSize(18, 18))
+        self.open_panel_btn_1.setAutoRepeat(False)
+        self.open_panel_btn_1.setAutoExclusive(False)
 
-        self.horizontalLayout_28.addWidget(self.pushButton_4)
+        self.horizontalLayout_28.addWidget(self.open_panel_btn_1)
 
         self.horizontalSpacer_33 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_28.addItem(self.horizontalSpacer_33)
 
 
-        self.verticalLayout_14.addWidget(self.menu_dashboard_frame_2)
+        self.verticalLayout_8.addWidget(self.menu_dashboard_frame_2)
 
         self.menu_settings_frame_2 = QFrame(self.short_menu_bar_frame)
         self.menu_settings_frame_2.setObjectName(u"menu_settings_frame_2")
@@ -263,24 +302,53 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_29.addItem(self.horizontalSpacer_34)
 
-        self.pushButton_5 = QPushButton(self.menu_settings_frame_2)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.pushButton_5.setIcon(icon1)
-        self.pushButton_5.setIconSize(QSize(18, 18))
+        self.open_edit_btn_1 = QPushButton(self.menu_settings_frame_2)
+        self.open_edit_btn_1.setObjectName(u"open_edit_btn_1")
+        self.open_edit_btn_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.open_edit_btn_1.setIcon(icon1)
+        self.open_edit_btn_1.setIconSize(QSize(18, 18))
 
-        self.horizontalLayout_29.addWidget(self.pushButton_5)
+        self.horizontalLayout_29.addWidget(self.open_edit_btn_1)
 
         self.horizontalSpacer_35 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_29.addItem(self.horizontalSpacer_35)
 
 
-        self.verticalLayout_14.addWidget(self.menu_settings_frame_2)
+        self.verticalLayout_8.addWidget(self.menu_settings_frame_2)
+
+        self.menu_settings_frame_3 = QFrame(self.short_menu_bar_frame)
+        self.menu_settings_frame_3.setObjectName(u"menu_settings_frame_3")
+        self.menu_settings_frame_3.setMinimumSize(QSize(0, 40))
+        self.menu_settings_frame_3.setStyleSheet(u"border-radius: 0;")
+        self.menu_settings_frame_3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.menu_settings_frame_3.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_31 = QHBoxLayout(self.menu_settings_frame_3)
+        self.horizontalLayout_31.setSpacing(0)
+        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
+        self.horizontalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_38 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_31.addItem(self.horizontalSpacer_38)
+
+        self.open_settings_btn_1 = QPushButton(self.menu_settings_frame_3)
+        self.open_settings_btn_1.setObjectName(u"open_settings_btn_1")
+        self.open_settings_btn_1.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.open_settings_btn_1.setIcon(icon2)
+        self.open_settings_btn_1.setIconSize(QSize(18, 18))
+
+        self.horizontalLayout_31.addWidget(self.open_settings_btn_1)
+
+        self.horizontalSpacer_39 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_31.addItem(self.horizontalSpacer_39)
+
+
+        self.verticalLayout_8.addWidget(self.menu_settings_frame_3)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.verticalLayout_14.addItem(self.verticalSpacer_4)
+        self.verticalLayout_8.addItem(self.verticalSpacer_4)
 
 
         self.horizontalLayout.addWidget(self.short_menu_bar_frame)
@@ -322,9 +390,9 @@ class Ui_MainWindow(object):
         self.menu_btn.setStyleSheet(u"border: none;\n"
 "background: none;\n"
 "padding: 15px;")
-        icon2 = QIcon()
-        icon2.addFile(u":/icons/icons/menu-icon.png", QSize(), QIcon.Mode.Selected, QIcon.State.On)
-        self.menu_btn.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/icons/menu-icon.png", QSize(), QIcon.Mode.Selected, QIcon.State.On)
+        self.menu_btn.setIcon(icon3)
 
         self.verticalLayout_13.addWidget(self.menu_btn)
 
@@ -424,7 +492,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.frame_35)
 
-        self.frame_10 = QFrame(self.frame_2)
+        self.main_pages_widget = QStackedWidget(self.frame_2)
+        self.main_pages_widget.setObjectName(u"main_pages_widget")
+        self.page_panel = QWidget()
+        self.page_panel.setObjectName(u"page_panel")
+        self.page_panel.setStyleSheet(u"background: none;")
+        self.horizontalLayout_16 = QHBoxLayout(self.page_panel)
+        self.horizontalLayout_16.setSpacing(0)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.frame_10 = QFrame(self.page_panel)
         self.frame_10.setObjectName(u"frame_10")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -1062,7 +1139,17 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.frame_11)
 
 
-        self.verticalLayout_3.addWidget(self.frame_10)
+        self.horizontalLayout_16.addWidget(self.frame_10)
+
+        self.main_pages_widget.addWidget(self.page_panel)
+        self.page_edit = QWidget()
+        self.page_edit.setObjectName(u"page_edit")
+        self.main_pages_widget.addWidget(self.page_edit)
+        self.page_settings = QWidget()
+        self.page_settings.setObjectName(u"page_settings")
+        self.main_pages_widget.addWidget(self.page_settings)
+
+        self.verticalLayout_3.addWidget(self.main_pages_widget)
 
 
         self.horizontalLayout.addWidget(self.frame_2)
@@ -1071,6 +1158,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.main_pages_widget.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -1078,6 +1168,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Indigo", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u041f\u0430\u043d\u0435\u043b\u044c", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438", None))
         self.label_33.setText(QCoreApplication.translate("MainWindow", u"I", None))
         self.time_label.setText(QCoreApplication.translate("MainWindow", u"20:13", None))
